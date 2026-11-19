@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Backgrounds */
+  --color-bg: #111827;
+  --color-surface: #1F2937;
+  --color-surface-hover: #374151;
+
+  /* Text */
+  --color-text: #F9FAFB;
+  --color-text-secondary: #9CA3AF;
+  --font-main: 'Inter', sans-serif;
+  --font-display: 'Anton', sans-serif;
+
+  /* Accent */
+  --color-primary: #818CF8;
+  --color-primary-hover: #A5B4FC;
+  --color-primary-text: #111827;
+
+  /* Borders */
+  --color-border: #374151;
+
+  /* Layout */
+  --content-width: 1100px;
+  --page-padding: 8%;
+  --section-spacing: 96px;
+
+  /* Shape */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+   /* Attention */ 
+  --attention-button: #C4F25A;
+  --attention-text: #1F2937;
+  --attention-lighter: #d8f03b;
+  --attention-boxshadow: -4px -4px 12px rgba(163, 255, 0, 0.5), 
+     4px -4px 12px rgba(163, 255, 0, 0.5);
+
+  /* Geometric design */
+--color-accent: #C4F25A;
+--color-indigo-deep: #4F46E5;
+--color-glow: rgb(129 140 248 / 18%);
+--color-grid: rgb(249 250 251 / 4%);
+}
+
+#root {
+  color: var(--color-text);
+  font-family: var(--font-main);
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', sans-serif;
+}
+
+section {
+  width: min(100% - 2 * var(--page-padding), var(--content-width));
+  margin-inline: auto;
+  padding-block: var(--section-spacing);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.065em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  letter-spacing: -0.04em;
+}
+
+button {
+  background-color: var(--attention-button);
+  color: var(--attention-text);
+}
+
+.highlight {
+  color: var(--attention-button);
+}
+
+input {
+  background-color: var(--color-surface-hover);
+}
+
+button {
+    align-self: flex-start;
+  padding: 12px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: var(--color-primary-text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--attention-text);
+  color: var(--attention-button);
+  border: 1px solid var(--attention-button);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.divider {
+  height: 1px;                       
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-border) 20%,            
+    var(--color-border) 80%,
+    transparent
+  );
+}
+
+/* ---------- shared base ---------- */
+.interactive-right,
+.interactive-btm {
+  position: relative;
+  cursor: pointer;
+}
+
+.interactive-right::after,
+.interactive-btm::after {
+  content: "";
+  position: absolute;
+  border-radius: 3px;
+  background-color: var(--attention-button);
+  box-shadow: var(--attention-boxshadow);
+  pointer-events: none;
+}
+
+.interactive-right:focus-visible,
+.interactive-btm:focus-visible {
+  outline: 2px solid var(--attention-button);
+  outline-offset: 2px;
+}
+
+/* ---------- right line (your current style) ---------- */
+.interactive-right::after {
+  top: 8px;
+  bottom: 8px;
+  right: 0;
+  width: 3px;
+  transition: top 0.3s ease, bottom 0.3s ease, width 0.3s ease;
+}
+
+.interactive-right:hover::after,
+.interactive-right:focus-visible::after {
+  top: 0;
+  bottom: 0;
+  width: 5px;
+}
+
+/* ---------- bottom line ---------- */
+.interactive-btm::after {
+  left: 8px;
+  right: 8px;
+  bottom: 0;
+  height: 3px;
+  transition: left 0.3s ease, right 0.3s ease, height 0.3s ease;
+}
+
+.interactive-btm:hover::after,
+.interactive-btm:focus-visible::after {
+  left: 0;
+  right: 0;
+  height: 5px;
+}
