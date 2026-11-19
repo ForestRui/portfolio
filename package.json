@@ -1,11 +1,11 @@
 {
   "name": "my-portfolio",
-  "homepage": "https://forestrui.github.io/portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "homepage": "https://forestrui.github.io/portfolio",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
